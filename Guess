@@ -1,0 +1,37 @@
+package Games_CLI_java;
+
+import java.util.*;
+// Author: Darshil G V
+public class Guess {
+    Random r=new Random();
+    Guess(){
+        int rn=r.nextInt(1,100);
+        Scanner in=new Scanner(System.in);
+        int chances=0;
+        System.out.println("The computer has guessed a number from 1-99 guess it Good Luck!: ");
+        while (true){
+            int gn=in.nextInt();
+            if (gn>100 || gn<1){
+                System.out.println("Wrong guess out of 100 or less than 1");
+            }
+            else if (gn<rn){
+                System.out.println("Number is greater than "+gn);
+                chances++;
+            } else if (gn>rn) {
+                System.out.println("Number lesser than "+gn);
+                chances++;
+            } else if (gn == rn) {
+                System.out.println("Hurray you won!!!!!!!!!!!!!! ");
+                System.out.println("Number of chances attempted: "+chances);
+                break;
+            }
+        }
+
+    }
+}
+
+class Exe{
+    public static void main(String[] args) {
+        new Guess();
+    }
+}
